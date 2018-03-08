@@ -92,6 +92,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:articleName', function(req,res){
+    //articleName == article-one
     var articleName = req.params.articlename;
     res.send(createTemp(articles[aticleName]));
 });
