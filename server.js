@@ -4,29 +4,58 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-var ArticleOne={
-    title:'Article One',
-    date:'9 March 2018'
-    heading:'Article One web app',
-    content:` 
-                <p>
-                    This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-    
-                </p>
-                <p>
-                            This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-                </p>
-                <p>
-                            This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-                </p>`
+var articles = {
+    'article-one':{
+        title:'Article One',
+        date:'9 March 2018',
+        heading:'Article One web app',
+        content:` 
+                    <p>
+                        This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+        
+                    </p>
+                    <p>
+                                This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+                    </p>
+                    <p>
+                                This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+                    </p>`
+                },
+    'article-two':{
+        title:'Article One',
+        date:'9 March 2018',
+        heading:'Article One web app',
+        content:` 
+                    <p>
+                        This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+        
+                    </p>
+                    <p>
+                            This is my second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+                    </p>`
+                 },
+    'article-three':{
+        title:'Article Three',
+        date:'11 March 2018',
+        heading:'Article Three web app',
+        content:` 
+                    <p>
+                        This is my third article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+        
+                    </p>
+                    <p>
+                            This is my second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+                    </p>
+                `
+    }
 };
+
 function createTemp(data){
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
-    var htmlTemplate = `
+    var htmlTemp = `
     <html>
     <head>
         <title>
@@ -49,30 +78,23 @@ function createTemp(data){
         </h3>
         <div class ="styling">
             <div>
-                ${content}
+               ${content}
             </div>
         </div>
     </body>
-    </html>
-    
+</html>
+
     `;
-    return htmlTemplate;
+    return htmlTemp;
 }
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function(req,res){
-    res.send(createTemp(ArticleOne));
+app.get('/:articleName', function(req,res){
+    res.send(createTemp(articles[aticleName]));
 });
 
-app.get('/article-two', function(req,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function(req,res){
-   res.send('Article three requested and will be served here'); 
-});
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
