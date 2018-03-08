@@ -23,7 +23,7 @@ var ArticleOne={
 };
 
 var htmlTemplate = `
-    <html>
+<html>
     <head>
         <title>
             ${title}
