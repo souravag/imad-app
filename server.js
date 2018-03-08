@@ -5,6 +5,54 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var ArticleOne={
+    title:'Article One',
+    date:'9 March 2018'
+    heading:'Article One web app',
+    content:` 
+                <p>
+                    This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+    
+                </p>
+                <p>
+                            This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+                </p>
+                <p>
+                            This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
+                </p>`
+};
+
+var htmlTemplate = `
+    <html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <meta name="viewport" content ="width=device-width, initial-scale=1" /> 
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    
+        <div>
+            <a href='/'>Home</a>
+        </div>
+        <div>
+            ${date}
+        </div>
+        <hr />
+        <h3>
+            ${heading}
+        </h3>
+        <div class ="styling">
+            <div>
+                ${content}
+            </div>
+        </div>
+    </body>
+</html>
+
+`;
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
