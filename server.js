@@ -21,9 +21,13 @@ var ArticleOne={
                             This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
                 </p>`
 };
-
-var htmlTemplate = `
-<html>
+function createTemp(data){
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    var htmlTemplate = `
+    <html>
     <head>
         <title>
             ${title}
@@ -49,16 +53,17 @@ var htmlTemplate = `
             </div>
         </div>
     </body>
-</html>
-
-`;
-
+    </html>
+    
+    `;
+    return htmlTemplate;
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one', function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+    res.send(createTemp(ArticleOne));
 });
 
 app.get('/article-two', function(req,res){
