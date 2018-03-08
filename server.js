@@ -22,9 +22,9 @@ var articles = {
                     </p>`
                 },
     'article-two':{
-        title:'Article One',
+        title:'Article two',
         date:'9 March 2018',
-        heading:'Article One web app',
+        heading:'Article Two web app',
         content:` 
                     <p>
                         This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
