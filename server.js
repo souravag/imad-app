@@ -33,7 +33,8 @@ var articles = {
                     <p>
                             This is my second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
                     </p>
-                ` },
+                `
+        },
     'article-three':{
         title:'Article Three',
         date:'11 March 2018',
@@ -93,8 +94,8 @@ app.get('/', function (req, res) {
 
 app.get('/:articleName', function(req,res){
     //articleName == article-one
-    var articleName = req.params.articlename;
-    res.send(createTemp(articles[articleName]));
+    var articleName= req.params.articlename;
+    res.send(createTemp(articlename[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
