@@ -32,8 +32,8 @@ var articles = {
                     </p>
                     <p>
                             This is my second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-                    </p>`
-                 },
+                    </p>
+                ` },
     'article-three':{
         title:'Article Three',
         date:'11 March 2018',
