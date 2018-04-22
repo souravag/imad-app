@@ -10,7 +10,7 @@ function moveRight()
 img.onclick = function(){
     var interval = setInterval(moveRight,50);
 };
-
+var counter = 0;
 var button=document.getElementById('counter');
 button.onClick = function() {
   
