@@ -55,4 +55,6 @@ submitone.onclick= function() {
     for(var i=0;i<comment1.length;i++){
         li +='<li>' + comment1[i] + '</li>';
     }
+    var ul = document.getElementById('nameListArticle One');
+    ul.innerHTML=li;
 };
