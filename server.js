@@ -85,9 +85,7 @@ function createTemp(data) {
         <hr />
         <input type="text" id="${title}" paceholder="name"></input>
         <input type="submit" id="submit_btn${title}" value="submit"></input>
-        <ul id="nameList${title}">
-            <li>My name is ${heading}.</li>
-        </ul>
+        <ul id="nameList${title}"></ul>
     </body>
 </html>
 
