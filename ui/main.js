@@ -50,11 +50,7 @@ var submitone = document.getElementById('submit_btnArticle One');
 submitone.onclick= function() {
     var comment=document.getElementById('Article One');
     var str=comment.value;
-    comment1.add(str);
-    var li='';
-    for(var i=0;i<comment1.length;i++){
-        li +='<li>' + str + '</li>';
-    }
+    var list='';
     var ul = document.getElementById('nameListArticle One');
-    ul.innerHTML=li;
+    ul.innerHTML=list;
 };
