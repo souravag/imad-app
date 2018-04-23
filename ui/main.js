@@ -38,7 +38,7 @@ submit.onclick = function() {
     }
 };
     //var names=['sands','hello','welcome','good luck'];
-    request.open('GET', 'http://souravagarwal54321.imad.hasura-app.io/username?name=' + str,true);
+    request.open('GET', 'http://souravagarwal54321.imad.hasura-app.io/username?name='+str,true);
   request.send(null);
     
 
