@@ -53,7 +53,7 @@ submitone.onclick= function() {
     comment1.add(str);
     var li='';
     for(var i=0;i<comment1.length;i++){
-        li +='<li>' + comment1[i] + '</li>';
+        li +='<li>' + str + '</li>';
     }
     var ul = document.getElementById('nameListArticle One');
     ul.innerHTML=li;
