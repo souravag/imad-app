@@ -16,8 +16,7 @@ button.onclick = function() {
   request.send(null);
 };
 console.log('Loaded!');
-var nameInput=document.getElementById('name');
-var str = nameInput.value;
+
 var submit=document.getElementById('submit_btn');
 
 submit.onclick = function() {
@@ -38,6 +37,8 @@ submit.onclick = function() {
     }
 };
     //var names=['sands','hello','welcome','good luck'];
+    var nameInput=document.getElementById('name');
+    var str = nameInput.value;
     request.open('GET', 'http://souravagarwal54321.imad.hasura-app.io/username?name='+str,true);
   request.send(null);
     
