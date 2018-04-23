@@ -50,7 +50,7 @@ var submitone = document.getElementById('submit_btnArticle One');
 submitone.onclick= function() {
     var comment=document.getElementById('Article One');
     var str=comment.value;
-    comment1.push(str);
+    comment1.add(str);
     var li='';
     for(var i=0;i<comment1.length;i++){
         li +='<li>' + comment1[i] + '</li>';
