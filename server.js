@@ -51,7 +51,7 @@ var articles = {
     }
 };
 
-function createTemp(data){
+function createTemp(data) {
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
@@ -87,7 +87,7 @@ function createTemp(data){
 
     `;
     return htmlTemp;
-}
+};
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
