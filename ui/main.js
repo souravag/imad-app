@@ -1,4 +1,6 @@
 var button = document.getElementById('counter'); 
+var span=document.getElementById('count');
+span.innerHTML="Many";
 button.onClick = function() {
  var request = new XMLHttpRequest();
  request.onreadystatechange = function() {
