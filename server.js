@@ -107,6 +107,12 @@ app.get('/username',function(req,res) {
    names.push(name);
    res.send(JSON.stringify(names));
 });
+var comments=[];
+app.get('/comment', function(req,res) {
+   var com = req.query.comment;
+   comments.push(com);
+   res.send(JSON.stringify(comments));
+});
 
 app.get('/:articleName', function(req,res){
     //articleName == article-one
