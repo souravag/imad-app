@@ -67,7 +67,7 @@ submitone.onclick = function() {
   };
   var inputtext = document.getElementById('Article One');
   var str=inputtext.value;
-  request.open('GET', 'http://souravagarwal54321.imad.hasura-app.io/comment?comment='+str,true);
+  request.open('GET', 'http://souravagarwal54321.imad.hasura-app.io/article-one/comment?comment='+str,true);
   request.send(null);
 };
 
