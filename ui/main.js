@@ -44,10 +44,11 @@ submit.onclick = function() {
     
 
 };
-console.log("Articles!");
+
 var submitone = document.getElementById('submit_btnArticle One');
 var submittwo = document.getElementById('submit_btnArticle Two');
 var submitthree = document.getElementById('submit_btnArticle Three');
+console.log("Articles!");
 submitone.onclick = function() {
     console.log("Button clicked!");
   var request = new XMLHttpRequest();
