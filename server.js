@@ -108,7 +108,7 @@ app.get('/username',function(req,res) {
    res.send(JSON.stringify(names));
 });
 var comments=[];
-app.get('/article-one/comment', function(req,res) {
+app.get('/comment', function(req,res) {
    var com = req.query.comment;
    comments.push(com);
    res.send(JSON.stringify(comments));
