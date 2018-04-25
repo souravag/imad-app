@@ -49,6 +49,7 @@ var submitone = document.getElementById('submit_btnArticle One');
 var submittwo = document.getElementById('submit_btnArticle Two');
 var submitthree = document.getElementById('submit_btnArticle Three');
 submitone.onclick = function() {
+    alert('Button clicked!');
   var request = new XMLHttpRequest();
   request.onreadystatechange = function() {
     if(request.readystate===XMLHttpRequest.DONE)
