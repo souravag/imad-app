@@ -58,7 +58,7 @@ submitone.onclick = function() {
             comments=JSON.parse(comments);
             var list='';
             for(var i=0;i<comments.length;i++){
-                list + ='<li>' + comments[i] + '<li>';
+                list +='<li>' + comments[i] + '<li>';
             }
             var ul = document.getElementById('nameListArticle One');
             ul.innerHTML=list;
