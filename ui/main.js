@@ -45,12 +45,3 @@ submit.onclick = function() {
 
 };
 
-var comment1;
-var submitone = document.getElementById('submit_btnArticle One');
-submitone.onclick= function() {
-    var comment=document.getElementById('Article One');
-    var str=comment.value;
-    var list='';
-    var ul = document.getElementById('nameListArticle One');
-    ul.innerHTML=list;
-};
