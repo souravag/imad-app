@@ -136,7 +136,7 @@ app.get('/article-one/comment', function(req,res) {
    res.send(JSON.stringify(comments));
 });
 
-app.get('/:articleName', function(req,res){
+app.get('/articles/:articleName', function(req,res){
     //articleName == article-one
     var articleName= req.params.articleName;
     res.send(createTemp(articles[articleName]));
