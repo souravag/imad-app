@@ -8,7 +8,7 @@ var config = {
     host:'db.imad.hasura.io',
     port:'5432',
     password:'db-souravagarwal54321-42599'
-}
+};
 var app = express();
 app.use(morgan('combined'));
 var articles = {
