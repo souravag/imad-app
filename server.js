@@ -110,6 +110,7 @@ app.get('/test-db', function(req,res) {
         console.log('Database loaded!');
        if(err)
        {
+           console.log('error!');
            res.status(500).send(err.toString());
        }
        else
