@@ -7,7 +7,7 @@ var config = {
     database:'souravagarwal54321',
     host:'db.imad.hasura.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password: process.env.DB_PASSWORD
 };
 var app = express();
 app.use(morgan('combined'));
@@ -107,7 +107,7 @@ app.get('/', function (req, res) {
 var pool = new Pool(config);
 console.log('Connection pool created!');
 app.get('/test-db', function(req,res) {
-    pool.query('SELECT * FROM test',function(err,result) {
+    pool.query('SELECT * FROM test', function(err,res) {
         console.log('Database loaded!');
        if(err)
        {
