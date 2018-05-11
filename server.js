@@ -11,52 +11,6 @@ var config = {
 };
 var app = express();
 app.use(morgan('combined'));
-var articles = {
-    'article-one':{
-        title:'Article One',
-        date:'9 March 2018',
-        heading:'Article One web app',
-        content:` 
-                    <p>
-                        This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-        
-                    </p>
-                    <p>
-                                This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-                    </p>
-                    <p>
-                                This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-                    </p>`
-                },
-    'article-two':{
-        title:'Article two',
-        date:'9 March 2018',
-        heading:'Article Two web app',
-        content:` 
-                    <p>
-                        This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-        
-                    </p>
-                    <p>
-                            This is my second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-                    </p>
-                `
-        },
-    'article-three':{
-        title:'Article Three',
-        date:'11 March 2018',
-        heading:'Article Three web app',
-        content:` 
-                    <p>
-                        This is my third article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-        
-                    </p>
-                    <p>
-                            This is my second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.I am enjoying it.
-                    </p>
-                `
-    }
-};
 
 function createTemp(data) {
     var title = data.title;
