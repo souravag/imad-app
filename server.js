@@ -142,7 +142,26 @@ app.get('/article-one/comment', function(req,res) {
 app.get('/articles/:articleName', function(req,res){
     //articleName == article-one
     var articleName= req.params.articleName;
-    res.send(createTemp(articles[articleName]));
+    
+   
+    pool.query("SELECT * FROM articles WHERE title=" + articleName, function(err,result){
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            if(result.rows.length === 0)
+            {
+                res.status(404).send('The Article you are looking for is Not Found!')
+            }
+            else {
+                 var articledata=result.rows[0];
+                 res.send(createTemp(articledata));
+            }
+        }
+    });
+    
 });
 
 
