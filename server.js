@@ -33,7 +33,7 @@ function createTemp(data) {
             <a href='/'>Home</a>
         </div>
         <div>
-            ${date}
+            ${date.toDateString()}
         </div>
         <hr />
         <h3>
