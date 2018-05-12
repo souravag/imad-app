@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
 var crypto= require('crypto');
+var bodyparser = require('body-parser');
 var config = {
     user:'souravagarwal54321',
     database:'souravagarwal54321',
@@ -12,6 +13,7 @@ var config = {
 };
 var app = express();
 app.use(morgan('combined'));
+app.use(bodyparser.json());
 
 function createTemp(data) {
     var title = data.title;
@@ -140,6 +142,26 @@ function hash(input,salt)
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
     return ['pbkdf2Sync',salt,10000,hashed.toString('hex')].join('$');
 }
+
+app.post('/createuser', function(req,res) {
+    
+   // {"username":"amazed","password":"test-db"}
+    var username=req.body.username;
+    var password=req.body.password;
+    var salt=crpto.getRandomBytes(128).toString('hex');
+    var dbstring = hash(password,salt);
+    pool.query('INSERT into "user" (username,password) VALUES($1,$2)', [username,dbstring],function(err,result){
+       if(err)
+       {
+            res.status(500).send(err.toString());
+       }
+       else
+       {
+           res.send('User successfully created' +username);
+       }
+    });
+});
+
 app.get('/hash/:input', function(req,res) {
    var hashedValue = hash(req.params.input,'this is random string');
    res.send(hashedValue);
