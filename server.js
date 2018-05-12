@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
-var crypto= require('crypto';)
+var crypto= require('crypto');
 var config = {
     user:'souravagarwal54321',
     database:'souravagarwal54321',
@@ -33,7 +33,7 @@ function createTemp(data) {
         <div>
             <a href='/'>Home</a>
         </div>
-        <div>
+        <div class="bold text-big">
             ${date.toDateString()}
         </div>
         <hr />
@@ -45,10 +45,12 @@ function createTemp(data) {
                ${content}
             </div>
         </div>
+        <div class ="events">
         <hr />
         <input type="text" id="${title}" paceholder="name"></input>
         <input type="submit" id="submit_btn${title}" value="submit"></input>
         <ul id="nameList${title}"></ul>
+        </div>
     </body>
 </html>
 
@@ -131,13 +133,13 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
-function hash(input)
+function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return hashed;
+    return hashed.toString('hex');
 }
 app.get('/hash/:input', function(req,res) {
-   var hashedValue = hash(req.params.input);
+   var hashedValue = hash(req.params.input,'this is random string');
    res.send(hashedValue);
 });
 
