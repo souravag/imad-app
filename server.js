@@ -140,7 +140,7 @@ app.get('/ui/main.js', function (req, res) {
 function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return ['pbkdf',salt,"10000",hashed.toString('hex')].join('$');
+    return ["pbkdf",salt,"10000",hashed.toString('hex')].join('$');
 }
 
 app.post('/createuser', function(req,res) {
@@ -148,7 +148,7 @@ app.post('/createuser', function(req,res) {
    // {"username":"amazed","password":"test-db"}
     var username=req.body.username;
     var password=req.body.password;
-    var salt=crypto.randomBytes(128).toString('hex');
+    var salt="creating~some~salt~value";
     var dbString = hash(password,salt);
     pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)', [username,dbString],function(err,result){
        if(err)
