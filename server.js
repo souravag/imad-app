@@ -118,7 +118,7 @@ app.get('/articles/:articleName', function(req,res){
         {
             if(result.rows.length === 0)
             {
-                res.status(404).send('The Article you are looking for is Not Found!')
+                res.status(404).send('The Article you are looking for is Not Found!');
             }
             else {
                  var articledata=result.rows[0];
@@ -177,7 +177,7 @@ app.post('/login', function(req,res) {
     
     var username=req.body.username;
     var password=req.body.password;
-    pool.query('SELECT password FROM "user" WHERE username= $1',[username], function(err,result) {
+    pool.query('SELECT * FROM "user" WHERE username= $1',[username], function(err,result) {
         if(err)
         {
             res.status(500).send(err.toString());
@@ -195,7 +195,7 @@ app.post('/login', function(req,res) {
                 var hashedPassword = hash(password,salt);
                 if(hashedPassword===dbstring) {
                     //set the session
-                    res.session.auth = {userId: result.rows[0].id};
+                    req.session.auth = {userId: result.rows[0].id};
                     //set the cookie
                     res.send('Successfully logged in!');
                 }
