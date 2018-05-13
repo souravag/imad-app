@@ -25,7 +25,7 @@ btn.onclick = function() {
   var pass=document.getElementById('password').value;
   console.log('Username and password received!');
   request.open('POST', 'http://souravagarwal54321.imad.hasura-app.io/login',true);
-  request.setRequestHeader('Content-Type':'application/json');
+  request.setRequestHeader('Content-Type','application/json');
   request.send(JSON.stringify({username: user,password:pass}));
 };
 console.log('Loaded!');
