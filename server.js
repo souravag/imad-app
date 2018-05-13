@@ -140,7 +140,7 @@ app.get('/ui/main.js', function (req, res) {
 function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return ['pbkdf',salt,10000,hashed.toString('hex')].join('$');
+    return ['pbkdf',salt,"10000",hashed.toString('hex')].join('$');
 }
 
 app.post('/createuser', function(req,res) {
@@ -185,7 +185,7 @@ app.post('/login', function(req,res) {
             else
             {
                 var dbstring = result.rows[0];
-                var salt=dbstring.split('$')[2];
+                var salt=dbstring.split('$')[1];
                 var hashedPassword = hash(password,salt);
                 if(hashedPassword===dbstring) {
                     res.send('Successfully logged in!');
