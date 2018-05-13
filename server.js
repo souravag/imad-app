@@ -167,6 +167,37 @@ app.get('/hash/:input', function(req,res) {
    res.send(hashedValue);
 });
 
+app.post('/login', function(req,res) {
+    
+    var username=req.body.username;
+    var password=req.body.password;
+    pool.query('SELECT password FROM user where username= $1',[username], function(err,result) {
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            if(result.rows.length===0)
+            {
+                res.status(403).send('Username/Password is invalid!');
+            }
+            else
+            {
+                var dbstring = result.rows[0];
+                var salt=dbstring.split('$')[2];
+                var hashedPassword = hash(password,salt);
+                if(hashedPassword===dbstring) {
+                    res.send('Successfully logged in!');
+                }
+                else{
+                    res.status(403).send('Username/Password is invalid!');
+                }
+            }
+        }
+    });
+});
+
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
