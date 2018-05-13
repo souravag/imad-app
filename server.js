@@ -4,6 +4,7 @@ var path = require('path');
 var Pool = require('pg').Pool;
 var crypto= require('crypto');
 var bodyparser = require('body-parser');
+var session=require('express-session');
 var config = {
     user:'souravagarwal54321',
     database:'souravagarwal54321',
@@ -14,6 +15,10 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyparser.json());
+app.use(session({
+    secret:'someRandomValue',
+    cookie:{maxAge= 1000*60*24*30}
+}));
 
 function createTemp(data) {
     var title = data.title;
@@ -189,6 +194,9 @@ app.post('/login', function(req,res) {
                 var salt=dbstring.split('$')[1];
                 var hashedPassword = hash(password,salt);
                 if(hashedPassword===dbstring) {
+                    //set the session
+                    res.session.auth = {userId: result.rows[0].id};
+                    //set the cookie
                     res.send('Successfully logged in!');
                 }
                 else{
@@ -197,6 +205,17 @@ app.post('/login', function(req,res) {
             }
         }
     });
+});
+
+app.get('check-login',function(req,res) {
+   if(req.session && req.session.auth && req.session.auth.userId) 
+   {
+       res.send('You are logged in:' +req.session.auth.userId.toString());
+   }
+   else
+   {
+       res.send('You are not logged in!');
+   }
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
