@@ -52,13 +52,12 @@ function createTemp(data) {
                ${content}
             </div>
         </div>
-        <div class ="events">
+        <div class ="comment_section">
         <hr />
         <input type="text" id="${title}" paceholder="name"></input>
         <input type="submit" id="submit_btn${title}" value="submit"></input>
         <ul id="nameList${title}"></ul>
-        </br>
-        </hr>
+        <br>
         </div>
     </body>
 </html>
@@ -222,6 +221,7 @@ app.get('/logout', function(req,res) {
    delete req.session.auth;
    res.send('you are Logged out!');
 });
+
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
